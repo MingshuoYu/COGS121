@@ -1,6 +1,6 @@
 Team Name: Youtuber Hunter
 
-Team Members' Name: Mingshuo Yu, Jiayu Luo, 
+Team Members' Name: Mingshuo Yu, Jiayu Luo, Weilin Liu, Zibin Dong
 
 Project Proposal: 
 
@@ -14,8 +14,7 @@ To build this website, we will use YouTubeData API and probably some other APIs 
 Storyboards:
 Storyboard 1:
 ![storyboard 1](StoryBoard1.jpg)
-Paper Prototypes:
-
+![storyboard 2](StoryBoard2.PNG)
 Paper Prototype 1
 ![paper prototype 1](IMG_6391.jpg)
 
