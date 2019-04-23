@@ -1,4 +1,4 @@
-Team Name: 
+Team Name: Youtuber Hunter
 
 Team Members' Name: Mingshuo Yu, Jiayu Luo, 
 
@@ -8,16 +8,17 @@ Nowadays, it is common to see YouTubers advertising products, such as cosmetics 
 
 None of our team members are the target users, because none of us are YouTubers or representatives who need to sell products for their companies.
 
-To build this website, we will use YouTube API and probably some other APIs as well. Our website provides a list of YouTubers from the most popular one to the least. It also provides information of YouTubers, including their popularity (calculated by the numbers of fans and views of their videos), percentage of "thumb up"s they got, topics of their channels, and link to their channels. For YouTubers, our website provides general information about companies and products they sell.
+To build this website, we will use YouTubeData API and probably some other APIs as well. Our website provides a list of YouTubers from the most popular one to the least. It also provides information of YouTubers, including their popularity (calculated by the numbers of subscribers and views of their videos), percentage of "thumb up"s they got, topics of their channels, and link to their channels. For YouTubers, our website provides general information about companies and products they sell.
 
 
 Storyboards:
-
+Storyboard 1:
+![storyboard 1](storyBoard1.jpg)
 Paper Prototypes:
 
 Paper Prototype 1
-![alt text](IMG_6391.jpg)
+![paper prototype 1](IMG_6391.jpg)
 
 Paper Prototype 2
-![alt text](prototype2-1.JPG)
-![alt text](prototype2-2.JPG)
+![paper prototype 2](prototype2-1.JPG)
+![paper prototype 2](prototype2-2.JPG)
