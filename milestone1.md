@@ -13,7 +13,7 @@ To build this website, we will use YouTubeData API and probably some other APIs 
 
 Storyboards:
 Storyboard 1:
-![storyboard 1](storyBoard1.jpg)
+![storyboard 1](StoryBoard1.jpg)
 Paper Prototypes:
 
 Paper Prototype 1
