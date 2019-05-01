@@ -6,6 +6,13 @@ Team Members' Name: Mingshuo Yu, Jiayu Luo, Weilin Liu, Zibin Dong
 Group Proposal: same as milestone1
 
 Screen Shots:
+Screen 1
+![Screen 1](screen1.png)
+This is the home page for company to look for youtubers. The page shows a list of youtubers.Companys can click on a youtuber to get more information about the youtuber. Companys can also use the search button to search for a youtuber. there are two buttons on the upper right hand corner. One is chat button to open chats. Another one is 'about me' for viewing/editing conpany information.
+
+Screen 2
+![Screen 2](screen2.png)
+This is the youtuber's detail page after a company clicked on a youtuber. There are two buttons. Companys can click on 'Chat' to open a chat with this particular youtuber. Compant can also click on 'Youtube' to open youtuber's youtube channel.
 
 Explanation of difference between screenshots and paper prototypes:
 
