@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<script src="jquery-3.3.1.min.js"></script>
+	
+	<script type="text/javascript">
+$(document).ready(() => {
+  $('#readButton').click(() => {
+    const requestURL = 'youtuber/' + $('#searchBox').val();
+    console.log('making ajax request to:', requestURL);
+
+    // From: http://learn.jquery.com/ajax/jquery-ajax-methods/
+    // Using the core $.ajax() method since it's the most flexible.
+    // ($.get() and $.getJSON() are nicer convenience functions)
+    $.ajax({
+      // all URLs are relative to http://localhost:3000/
+      url: requestURL,
+      type: 'GET',
+      dataType : 'json', // this URL returns data in JSON format
+      success: (data) => {
+        console.log('You received some data!', data);
+
+        if (data.category) {
+          $('#name').html($('#searchBox').val());
+          $('#category').html(data.category);
+          $('#subscribers').html('subscribers: ' + data.subscribers);
+          $('#upvote').html('upvote: ' + data.upvote);
+          $('#rank').html('1');
+          $('.sublist').html('');
+          // $('#photo').attr('src', data.pet).attr('width', '300px');
+        } else {
+          $('#name').html('Error: could not find user at URL: ' + requestURL);
+          // clear the display
+          $('#category').html('');
+          $('#subscribers').html('');
+          $('#upvote').html('');
+          $('#photo').attr('src', '').attr('width', '0px');
+        }
+      },
+    });
+  });
+  });
+	</script>
+
+	<style type="text/css">
+		.header{
+			height: 80px;
+			background: rgb(25,177,244);
+		}
+		h3{
+			margin-top: 0;
+			float: left;
+		}
+		.nav{
+			float: right;
+		}
+		.search{
+			margin-left: 40%;
+			margin-top: 5vw;
+		}
+		.list a{
+			float: left;
+			margin-left: 5vw;
+			margin-top: 2vw;
+			width: 25vw;
+			height: 8vw;
+			background: rgb(152,233,255);
+			text-decoration: none;
+		}
+		.list p{
+			margin: 0;
+			color: black;
+		}
+
+		.number{
+			width: 2vw;
+			float: left;
+		}
+		.photo{
+			width: 8vw;
+			float: left;
+			padding-top: 1vw;
+		}
+		.info{
+			width: 15vw;
+			float: left;
+			padding-top: 1vw;
+		}
+		span{
+			color: black;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h3>YouTuber Hunter</h3>
+		<div class="nav">
+			<a href="chat_company.html">Chat</a>&nbsp;
+			<a href="about_me_company.html">About Me</a>
+		</div>
+	</div>
+	<div class="search">
+		<input id="searchBox" type="text" name="">
+		<button id="readButton">search</button>
+	</div>
+	<br><br>
+	<div class="list">
+		<div class="sublist">
+			<a id="youtubers" href="youtuber_a.html">
+				<div class="number">
+					<p>1</p>
+				</div>
+				<div class="photo">
+					<img src="photo.png" width="70%">
+				</div>
+				<div class="info">
+					<p>YouTuber Name</p>
+					<p>Category</p>
+					<span>subscribers: 2.3M</span>
+					&nbsp;
+					<span>upvote: 95%<span>
+				</div>
+			</a>
+			<a id="youtubers" href="youtuber_a.html">
+				<div class="number">
+					<p>2</p>
+				</div>
+				<div class="photo">
+					<img src="photo.png" width="70%">
+				</div>
+				<div class="info">
+					<p>YouTuber Name</p>
+					<p>Category</p>
+					<span>subscribers: 2.3M</span>
+					&nbsp;
+					<span>upvote: 95%<span>
+				</div>
+			</a>
+			<a id="youtubers" href="youtuber_a.html">
+				<div class="number">
+					<p>3</p>
+				</div>
+				<div class="photo">
+					<img src="photo.png" width="70%">
+				</div>
+				<div class="info">
+					<p>YouTuber Name</p>
+					<p>Category</p>
+					<span>subscribers: 2.3M</span>
+					&nbsp;
+					<span>upvote: 95%<span>
+				</div>
+			</a>
+			<a id="youtubers" href="youtuber_a.html">
+				<div class="number">
+					<p>4</p>
+				</div>
+				<div class="photo">
+					<img src="photo.png" width="70%">
+				</div>
+				<div class="info">
+					<p>YouTuber Name</p>
+					<p>Category</p>
+					<span>subscribers: 2.3M</span>
+					&nbsp;
+					<span>upvote: 95%<span>
+				</div>
+			</a>
+			<a id="youtubers" href="youtuber_a.html">
+				<div class="number">
+					<p>5</p>
+				</div>
+				<div class="photo">
+					<img src="photo.png" width="70%">
+				</div>
+				<div class="info">
+					<p>YouTuber Name</p>
+					<p>Category</p>
+					<span>subscribers: 2.3M</span>
+					&nbsp;
+					<span>upvote: 95%<span>
+				</div>
+			</a>
+		</div>
+		<a href="youtuber_a.html">
+			<div class="number">
+				<p id="rank">6</p>
+			</div>
+			<div class="photo">
+				<img id="photo" src="photo.png" width="70%">
+			</div>
+			<div class="info">
+				<p id="name">YouTuber Name</p>
+				<p id="category">Category</p>
+				<span id="subscribers">subscribers: 2.3M</span>
+				&nbsp;
+				<span id="upvote">upvote: 95%<span>
+			</div>
+		</a>
+	</div>
+
+</body>
+</html>
