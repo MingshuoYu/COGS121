@@ -3,7 +3,7 @@ Team Name: Youtuber Hunter
 
 Team Members' Name: Mingshuo Yu, Jiayu Luo, Weilin Liu, Zibin Dong
 
-Group Proposal: same as milestone1
+Group Proposal: Same as milestone1
 
 Screen Shots:
 Screen 1
@@ -13,6 +13,19 @@ This is the home page for company to look for youtubers. The page shows a list o
 Screen 2
 ![Screen 2](screen2.png)
 This is the youtuber's detail page after a company clicked on a youtuber. There are two buttons. Companys can click on 'Chat' to open a chat with this particular youtuber. Compant can also click on 'Youtube' to open youtuber's youtube channel.
+
+All remaining screen:
+![3](3)
+![4](4)
+![5](5)
+![6](6)
+![7](7)
+![8](8)
+![9](9)
+![10](10)
+![11](11)
+![12](12)
+![13](13)
 
 Explanation of difference between screenshots and paper prototypes:
 
