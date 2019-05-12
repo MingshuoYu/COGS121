@@ -3,7 +3,7 @@
 <head>
 	<title>Home</title>
 	<script src="jquery-3.3.1.min.js"></script>
-	
+	<link rel="stylesheet" href="style.css"> 
 	<script type="text/javascript">
 $(document).ready(() => {
   $('#readButton').click(() => {
@@ -44,9 +44,17 @@ $(document).ready(() => {
 	</script>
 
 	<style type="text/css">
+		body{
+			background: rgb(33,33,33);
+		}
 		.header{
 			height: 80px;
-			background: rgb(25,177,244);
+			background: rgb(49,49,49);
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.03), 0 4px 12px 0 rgba(0, 0, 0, 0.08);
+		}
+		#logo{
+			margin-left: 1%;
+			margin-top: 1.4%;
 		}
 		h3{
 			margin-top: 0;
@@ -54,23 +62,31 @@ $(document).ready(() => {
 		}
 		.nav{
 			float: right;
+			margin-top: 25px;
+			width: 60px;
+			margin-right: 20px;
 		}
 		.search{
 			margin-left: 40%;
 			margin-top: 5vw;
 		}
+		.list{
+			margin-left: 4vw;
+		}
 		.list a{
 			float: left;
-			margin-left: 5vw;
-			margin-top: 2vw;
+			margin-left: 3vw;
+			margin-top: 3vw;
 			width: 25vw;
-			height: 8vw;
-			background: rgb(152,233,255);
+			height: 9vw;
+			background: rgb(69,69,69);
 			text-decoration: none;
+			border-radius: 5px;
+			padding: 8px;
 		}
 		.list p{
 			margin: 0;
-			color: black;
+
 		}
 
 		.number{
@@ -87,22 +103,40 @@ $(document).ready(() => {
 			float: left;
 			padding-top: 1vw;
 		}
-		span{
-			color: black;
+
+		#searchBox{
+			height: 37px;
+			width: 300px;
+			border: 0;
+			padding: 0;
 		}
+		#readButton {
+		  font-family: Verdana, Geneva, sans-serif;
+		  background-color: rgb(255,49,49);
+		  border: none;
+		  color: white;
+		  padding: 10px 15px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 14px;
+		  cursor: pointer;
+	}
+
 	</style>
 </head>
 <body>
 	<div class="header">
-		<h3>YouTuber Hunter</h3>
+		<img id="logo" src="hunter_logo.png" width="15%">
 		<div class="nav">
-			<a href="chat_company.html">Chat</a>&nbsp;
-			<a href="about_me_company.html">About Me</a>
+			<!-- <a href="chat_company.html"><img src="chat.png" width="30%"></a>&nbsp; &nbsp; &nbsp; &nbsp; -->
+			<a href="about_me_company.html"><img src="photo.png" width="60%"></a>
 		</div>
 	</div>
+<div class="main_body">
 	<div class="search">
 		<input id="searchBox" type="text" name="">
-		<button id="readButton">search</button>
+		<button id="readButton">Search</button>
 	</div>
 	<br><br>
 	<div class="list">
@@ -115,71 +149,68 @@ $(document).ready(() => {
 					<img src="photo.png" width="70%">
 				</div>
 				<div class="info">
-					<p>YouTuber Name</p>
-					<p>Category</p>
-					<span>subscribers: 2.3M</span>
+					<p class="name">YouTuber Name</p>
+					<p class="category">Category</p>
+					<span class="subscriber"><img src="subscriber.png" width="7%"> Subscribers: 2.3M</span>
 					&nbsp;
-					<span>upvote: 95%<span>
+					<!-- <span class="upvote"><img src="upvote.png" width="9%"> 95%<span> -->
 				</div>
 			</a>
 			<a id="youtubers" href="youtuber_a.html">
 				<div class="number">
-					<p>2</p>
+					<p>1</p>
 				</div>
 				<div class="photo">
 					<img src="photo.png" width="70%">
 				</div>
 				<div class="info">
-					<p>YouTuber Name</p>
-					<p>Category</p>
-					<span>subscribers: 2.3M</span>
+					<p class="name">YouTuber Name</p>
+					<p class="category">Category</p>
+					<span class="subscriber"><img src="subscriber.png" width="7%"> 2.3M</span>
 					&nbsp;
-					<span>upvote: 95%<span>
+					<!-- <span class="upvote"><img src="upvote.png" width="9%"> 95%<span> -->
 				</div>
-			</a>
-			<a id="youtubers" href="youtuber_a.html">
+			</a><a id="youtubers" href="youtuber_a.html">
 				<div class="number">
-					<p>3</p>
+					<p>1</p>
 				</div>
 				<div class="photo">
 					<img src="photo.png" width="70%">
 				</div>
 				<div class="info">
-					<p>YouTuber Name</p>
-					<p>Category</p>
-					<span>subscribers: 2.3M</span>
+					<p class="name">YouTuber Name</p>
+					<p class="category">Category</p>
+					<span class="subscriber"><img src="subscriber.png" width="7%"> 2.3M</span>
 					&nbsp;
-					<span>upvote: 95%<span>
+					<!-- <span class="upvote"><img src="upvote.png" width="9%"> 95%<span> -->
 				</div>
-			</a>
-			<a id="youtubers" href="youtuber_a.html">
+			</a><a id="youtubers" href="youtuber_a.html">
 				<div class="number">
-					<p>4</p>
+					<p>1</p>
 				</div>
 				<div class="photo">
 					<img src="photo.png" width="70%">
 				</div>
 				<div class="info">
-					<p>YouTuber Name</p>
-					<p>Category</p>
-					<span>subscribers: 2.3M</span>
+					<p class="name">YouTuber Name</p>
+					<p class="category">Category</p>
+					<span class="subscriber"><img src="subscriber.png" width="7%"> 2.3M</span>
 					&nbsp;
-					<span>upvote: 95%<span>
+					<!-- <span class="upvote"><img src="upvote.png" width="9%"> 95%<span> -->
 				</div>
-			</a>
-			<a id="youtubers" href="youtuber_a.html">
+			</a><a id="youtubers" href="youtuber_a.html">
 				<div class="number">
-					<p>5</p>
+					<p>1</p>
 				</div>
 				<div class="photo">
 					<img src="photo.png" width="70%">
 				</div>
 				<div class="info">
-					<p>YouTuber Name</p>
-					<p>Category</p>
-					<span>subscribers: 2.3M</span>
+					<p class="name">YouTuber Name</p>
+					<p class="category">Category</p>
+					<span class="subscriber"><img src="subscriber.png" width="7%"> 2.3M</span>
 					&nbsp;
-					<span>upvote: 95%<span>
+					<!-- <span class="upvote"><img src="upvote.png" width="9%"> 95%<span> -->
 				</div>
 			</a>
 		</div>
@@ -191,14 +222,14 @@ $(document).ready(() => {
 				<img id="photo" src="photo.png" width="70%">
 			</div>
 			<div class="info">
-				<p id="name">YouTuber Name</p>
-				<p id="category">Category</p>
-				<span id="subscribers">subscribers: 2.3M</span>
+				<p id="name" class="name">YouTuber Name</p>
+				<p id="category" class="category">Category</p>
+				<span id="subscribers"><img src="subscriber.png" width="7%"> 2.3M</span>
 				&nbsp;
-				<span id="upvote">upvote: 95%<span>
+				<!-- <span id="upvote"><img src="upvote.png" width="7%"> 95%<span> -->
 			</div>
 		</a>
 	</div>
-
+</div>
 </body>
 </html>
