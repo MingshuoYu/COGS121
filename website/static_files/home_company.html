@@ -3,7 +3,7 @@
 <head>
 	<title>Home</title>
 	<script src="jquery-3.3.1.min.js"></script>
-	<link rel="stylesheet" href="style.css"> 
+	<link rel="stylesheet" href="style.css">
 	<script type="text/javascript">
 $(document).ready(() => {
   $('#readButton').click(() => {
@@ -21,11 +21,10 @@ $(document).ready(() => {
       success: (data) => {
         console.log('You received some data!', data);
 
-        if (data.category) {
+        if (data) {
           $('#name').html($('#searchBox').val());
-          $('#category').html(data.category);
-          $('#subscribers').html('subscribers: ' + data.subscribers);
-          $('#upvote').html('upvote: ' + data.upvote);
+          $('#category').html(data.category_name);
+          $('#subscribers').html('subscribers: ' + data.followers);
           $('#rank').html('1');
           $('.sublist').html('');
           // $('#photo').attr('src', data.pet).attr('width', '300px');
@@ -34,7 +33,6 @@ $(document).ready(() => {
           // clear the display
           $('#category').html('');
           $('#subscribers').html('');
-          $('#upvote').html('');
           $('#photo').attr('src', '').attr('width', '0px');
         }
       },
