@@ -35,6 +35,27 @@ app.get('/youtuber/:youtuberid', (req, res) => {
 
 });
 
+app.get('/youtuber/category/:categoryname', (req, res) => {
+  const nameToLookup = req.params.categoryname; // matches ':userid' above
+  db.all(
+    'SELECT * FROM youtuber_data WHERE category_name = $category_name',
+    {
+      $category_name: nameToLookup
+    },
+    (err, rows) => {
+      console.log(rows);
+      if(rows.length > 0){
+        var rows_top = rows.slice(0,6)
+        res.send(rows_top);
+      }
+      else {
+        res.send({});
+      }
+    }
+  );
+
+});
+
 app.listen(3000, () => {
   console.log('Server started at http://localhost:3000/');
 });
