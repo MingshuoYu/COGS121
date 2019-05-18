@@ -2,23 +2,77 @@
 <html>
 <head>
 	<title>Login</title>
+	<link rel="stylesheet" href="style.css"> 
 </head>
+
 	<style type="text/css">
+		body{
+			background: rgb(33,33,33);
+		}
+		.header{
+			height: 80px;
+			background: rgb(49,49,49);
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.03), 0 4px 12px 0 rgba(0, 0, 0, 0.08);
+		}
+		#logo{
+			margin-left: 1%;
+			margin-top: 1.4%;
+			width: 200px;
+		}
+		h3{
+			margin-top: 0;
+			float: left;
+		}
+		.nav{
+			float: right;
+			margin-top: 25px;
+			width: 60px;
+			margin-right: 20px;
+		}
+		.login{
+			width: 30%;
+			background: rgb(69,69,69);
+			margin-left: 35%;
+			margin-top: 5vw;
+			text-align: center;
+			border-radius: 10px;
+			padding-top: 100px;
+			padding-bottom: 100px;
+		}
+		#loginButton {
+		  font-family: Verdana, Geneva, sans-serif;
+		  background-color: rgb(255,49,49);
+		  border: none;
+		  color: white;
+		  padding: 10px 50px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 14px;
+		  cursor: pointer;
+		  border-radius: 5px;
+		}
 	</style>
 <body>
+	<div class="header">
+		<img id="logo" src="hunter_logo.png" width="15%">
+		<div class="nav">
+			<!-- <a href="chat_company.html"><img src="chat.png" width="30%"></a>&nbsp; &nbsp; &nbsp; &nbsp; -->
+			
+		</div>
+	</div>
 	&nbsp;
-	<font size ="7"><center>YouTuber Hunter</center></font>
-	&nbsp;
-	<br><br><br><br><br><br><br>
-	<center><p>Login as Company/Organization</p></center>
-	<center><form action="home_company.html">
-		  Email:<br>
-		  <input type="text" name="firstname" value="">
-		  <br>
-		  Password:<br>
-		  <input type="text" name="lastname" value="">
-		  <br><br>
-		  <input type="submit" value="Login">
-	</form></center>
+	<div class="login">
+		<center><p>Welcom Back!</p></center>
+		<center><form action="home_company.html">
+			  <p>Email:</p>
+			  <input type="text" name="email" value="">
+			  <br>
+			  <p>Password:</p>
+			  <input type="text" name="password" value="">
+			  <br><br>
+			  <button id="loginButton">Login</button>
+		</form></center>
+	</div>
 </body>
 </html>
