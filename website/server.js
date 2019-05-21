@@ -25,7 +25,7 @@ app.get('/youtuber/:youtuberid', (req, res) => {
     (err, rows) => {
       console.log(rows);
       if(rows.length > 0){
-        res.send(rows[0]);
+        res.send(rows.slice(0,1));
       }
       else {
         res.send({});
@@ -45,8 +45,7 @@ app.get('/youtuber/category/:categoryname', (req, res) => {
     (err, rows) => {
       console.log(rows);
       if(rows.length > 0){
-        var rows_top = rows.slice(0,6)
-        res.send(rows_top);
+        res.send(rows.slice(0,6));
       }
       else {
         res.send({});
