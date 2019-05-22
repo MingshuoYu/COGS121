@@ -41,6 +41,9 @@
 			border-radius: 10px;
 			padding-top: 50px;
 			padding-bottom: 100px;
+			padding-left: 50px;
+			padding-right: 50px;
+			margin-bottom: 50px;
 		}
 		.profile img{
 			margin-top: 2vw;
@@ -50,6 +53,13 @@
 		}
 		#description{
 			font-size: 12px;
+			line-height: 20px;
+		}
+		#youtuber_name{
+			font-size: 30px;
+		}
+		#youtuber_photo{
+			border-radius: 50%;
 		}
 	</style>
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -95,7 +105,7 @@
 						$('#youtuber_name').html(data[0].title);
 						$('#category').html(data[0].category_name);
 						$('#subscriber_num').html('Followers: ' + data[0].followers);
-						$('#description').html('Description' + '<br>' + data[0].description);
+						$('#description').html(data[0].description);
 						$('#channel').attr('href', data[0].profile_url);
 					}
 					else{
@@ -145,14 +155,15 @@
 		<br>
 		<p id="youtuber_name"></p>
 		<p id="category"></p>
-		<br>
-		<span id="subscriber_num"><img src="subscriber.png" width="3%"></img>&nbsp;</span>
+		<img src="subscriber.png" width="3%">
+		<span id="subscriber_num"></img>&nbsp;</span>
 		&nbsp;
 		<!-- <span>upvote: 95%</span> -->
 		<br>
 		<br>
 		<br>
 		<br>
+		<p>Description</p>
 		<p id="description"></p>
 		<!-- <a href="chat_company.html">Chat</a> -->
 		<br>
