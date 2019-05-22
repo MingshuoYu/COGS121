@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="style.css"> 
+	<link rel="stylesheet" href="style.css">
 	<title>Detail</title>
 	<style type="text/css">
 		body{
@@ -52,29 +52,75 @@
 			font-size: 12px;
 		}
 	</style>
+	<script src="jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(() => {
+		let url = decodeURIComponent(window.location.search);
+		url = url.substring(1);
+		const modiurl = new URLSearchParams(url);
+		const title = modiurl.get('title');
+		const requestURL = 'youtuber/' +title;
+		console.log('making ajax request to: ', requestURL);
+		console.log('title: ', title);
+
+		$.ajax({
+				url: requestURL,
+				type: 'GET',
+				dataType: 'json',
+				success: (data) =>{
+					console.log('You received some data ', data);
+					if(data[0].title){
+						console.log('current youtuber: ', data[0].title);
+						$('#youtuber_photo').attr('src', data[0].picture_url);
+						$('#youtuber_name').html(data[0].title);
+						$('#category').html(data[0].category_name);
+						$('#subscriber_num').html('Followers: ' + data[0].followers);
+						$('#description').html('Description' + '<br>' + data[0].description);
+						$('#channel').attr('href', data[0].profile_url);
+					}
+					else{
+						console.log('No such Youtuber');
+						$('#youtuber_name').html('No Such YouTuber');
+					}
+				}
+			});
+	});
+
+
+
+
+
+	</script>
 </head>
 <body>
 	<div class="header">
 		<img id="logo" src="hunter_logo.png" width="15%">
 		<div class="nav">
 			<!-- <a href="chat_company.html"><img src="chat.png" width="30%"></a>&nbsp; &nbsp; &nbsp; &nbsp; -->
-			<a href="bookmark.html"><img src="mark.png" width=30px></a><a href="login_company.html"><img src="logout.png" width=26px></a>
+			<a href="bookmark.html"><img src="mark.png" width=30px></img></a>
+			<a href="login_company.html"><img src="logout.png" width=26px></img></a>
 		</div>
 	</div>
 	<div class="profile">
-		<img id="youtuber_photo" src="photo.png" width="20%">
-		<p id="youtuber_name">YouTuber Name</p>
-		<p id="category">category</p>
-		<span id="subscriber_num"><img src="subscriber.png" width="3%">&nbsp;Subscribers: 23342355</span>
+		<img id="youtuber_photo" width="20%"></img>
+		<br>
+		<br>
+		<p id="youtuber_name"></p>
+		<p id="category"></p>
+		<br>
+		<span id="subscriber_num"><img src="subscriber.png" width="3%"></img>&nbsp;</span>
 		&nbsp;
 		<!-- <span>upvote: 95%</span> -->
-		
-		<p id="description">Description</p>
+		<br>
+		<br>
+		<br>
+		<br>
+		<p id="description"></p>
 		<!-- <a href="chat_company.html">Chat</a> -->
 		<br>
-		<a id="channel" href="https://www.youtube.com/channel/UCmn_foEcC0mY72rzRrMzWSQ"><img src="youtube.png" width="18%"></a>
-		
+		<a id="channel"><img src="youtube.png" width="18%"></a>
+
 	</div>
-	
+
 </body>
 </html>

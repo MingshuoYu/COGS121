@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="style.css">
 	<script type="text/javascript">
 $(document).ready(() => {
-	var requestURL;
+	let requestURL;
 	requestURL = '/top_youtuber';
 	$.ajax({
       // all URLs are relative to http://localhost:3000/
@@ -16,18 +16,19 @@ $(document).ready(() => {
       success: (data) => {
         console.log('You received some data!', data);
 
-        var i,x = "";
+        let i,x = "";
 
         if (data) {
 
         		for(i in data){
-        			var rank = Number(i)+1;
-        			x += "<a id='youtubers' href='youtuber_a.html'>" + "<p class='number'>" + rank+ "</p>"+ "<div class='photo'>"+"<img src="+data[i].picture_url +" width='70%'>" +"</div>"+ "<div class='info'>"+"<p class='name'>"+data[i].title+"</p>" +"<p class='category'>"+data[i].category_name+"</p>"+ "<span class='subscriber'>"+"<img src='subscriber.png' width='7%'>"+" Followers:"+data[i].followers+"</span>"+"</div>"+"</a>";
+        			let rank = Number(i)+1;
+							let queryString = "?title=" + data[i].title;
+        			x += "<a id='youtubers' href='youtuber_a.html" + queryString + "'>" + "<p class='number'>" + rank+ "</p>"+ "<div class='photo'>"+"<img src="+data[i].picture_url +" width='70%'>" +"</div>"+ "<div class='info'>"+"<p class='name'>"+data[i].title+"</p>" +"<p class='category'>"+data[i].category_name+"</p>"+ "<span class='subscriber'>"+"<img src='subscriber.png' width='7%'>"+" Followers:"+data[i].followers+"</span>"+"</div>"+"</a>";
         		}
-        	
-        	
+
+
           $('.list').html(x);
-         
+
         } else {
           // $('#name').html('Error: could not find user at URL: ' + requestURL);
           console.log("could not find user at URL: ' + requestURL");
@@ -36,7 +37,7 @@ $(document).ready(() => {
     });
 
   $('#readButton').click(() => {
- 
+
   	if($('#searchBox').val() == "Music" || $('#searchBox').val() == "Entertainment" || $('#searchBox').val() == "Howto & Style" || $('#searchBox').val() =="Sports" || $('#searchBox').val() == "People & Blogs"|| $('#searchBox').val() == "Gaming"|| $('#searchBox').val() == "Comedy"|| $('#searchBox').val() =="Education"|| $('#searchBox').val() =="Film and Animation"|| $('#searchBox').val() =="Pets & Animals"|| $('#searchBox').val() =="Nonprofits & Activism"|| $('#searchBox').val() =="Science & Technology"|| $('#searchBox').val() =="News & Politics"|| $('#searchBox').val() =="Beauty & Fashion"|| $('#searchBox').val() =="Auto & Vehicles"|| $('#searchBox').val() =="Travel & Events"|| $('#searchBox').val() =="Food"|| $('#searchBox').val() =="Family Entertainment"){
   		requestURL = 'youtuber/category/' + $('#searchBox').val();
     	console.log('making ajax request to:', requestURL);
@@ -44,12 +45,12 @@ $(document).ready(() => {
   		requestURL = 'youtuber/' + $('#searchBox').val();
     	console.log('making ajax request to:', requestURL);
   	}
-    
+
 
     // From: http://learn.jquery.com/ajax/jquery-ajax-methods/
     // Using the core $.ajax() method since it's the most flexible.
     // ($.get() and $.getJSON() are nicer convenience functions)
- 
+
 
     $.ajax({
       // all URLs are relative to http://localhost:3000/
@@ -59,18 +60,18 @@ $(document).ready(() => {
       success: (data) => {
         console.log('You received some data!', data);
 
-        var i,x = "";
+        let i,x = "";
 
         if (data) {
 
         		for(i in data){
-        			var rank = Number(i)+1;
+        			let rank = Number(i)+1;
         			x += "<a id='youtubers' href='youtuber_a.html'>" + "<p class='number'>" + rank+ "</p>"+ "<div class='photo'>"+"<img src="+data[i].picture_url +" width='70%'>" +"</div>"+ "<div class='info'>"+"<p class='name'>"+data[i].title+"</p>" +"<p class='category'>"+data[i].category_name+"</p>"+ "<span class='subscriber'>"+"<img src='subscriber.png' width='7%'>"+" Followers:"+data[i].followers+"</span>"+"</div>"+"</a>";
         		}
-        	
-        	
+
+
           $('.list').html(x);
-         
+
         } else {
           // $('#name').html('Error: could not find user at URL: ' + requestURL);
           console.log("could not find user at URL: ' + requestURL");
@@ -195,7 +196,7 @@ $(document).ready(() => {
 	</div>
 	<br><br>
 	<div class="list">
-<!-- 
+<!--
 			<a id="youtubers" href="youtuber_a.html">
 				<div class="number">
 					<p>1</p>
@@ -210,8 +211,8 @@ $(document).ready(() => {
 					&nbsp;
 				</div>
 			</a> -->
-			
-		
+
+
 
 	</div>
 </body>
