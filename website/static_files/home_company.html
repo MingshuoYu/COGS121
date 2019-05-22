@@ -23,7 +23,7 @@ $(document).ready(() => {
         		for(i in data){
         			let rank = Number(i)+1;
 							let queryString = "?title=" + data[i].title;
-        			x += "<a id='youtubers' href='youtuber_a.html" + queryString + "'>" + "<p class='number'>" + rank+ "</p>"+ "<div class='photo'>"+"<img src="+data[i].picture_url +" width='70%'>" +"</div>"+ "<div class='info'>"+"<p class='name'>"+data[i].title+"</p>" +"<p class='category'>"+data[i].category_name+"</p>"+ "<span class='subscriber'>"+"<img src='subscriber.png' width='7%'>"+" Followers:"+data[i].followers+"</span>"+"</div>"+"</a>";
+        			x += "<a id='youtubers' href='youtuber_a.html" + queryString + "'>" + "<p class='number'>" + rank+ "</p>"+ "<div class='photo'>"+"<img src="+data[i].picture_url +" width='70%'>" +"</div>"+ "<div class='info'>"+"<p class='name'>"+data[i].title+"</p>" +"<p class='category'>"+data[i].category_name+"</p>"+ "<span class='subscriber'>"+"<img src='subscriber.png' width='7%'>"+"Followers:"+data[i].followers+"</span>"+"</div>"+"</a>";
         		}
 
 
@@ -127,10 +127,11 @@ $(document).ready(() => {
 			margin-top: 3vw;
 			width: 25vw;
 			height: 9vw;
-			background: rgb(69,69,69);
+			background: rgb(50,50,50);
 			text-decoration: none;
 			border-radius: 5px;
 			padding: 8px;
+			box-shadow: 5px 5px 18px #FF3131;
 		}
 		.list p{
 			margin: 0;
@@ -174,9 +175,18 @@ $(document).ready(() => {
 		  font-size: 14px;
 		  cursor: pointer;
 	}
+	.name{
+		line-height: 30px;
+	}
 	.category{
 		font-size: 12px;
-		line-height: 24px;
+		line-height: 30px;
+	}
+	.subscriber{
+		font-family: Source Sans Pro;
+		font-size: 12px;
+		color: white;
+		margin-top: 20px;
 	}
 
 	</style>
