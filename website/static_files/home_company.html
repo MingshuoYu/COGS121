@@ -7,8 +7,15 @@
 	<script type="text/javascript">
 $(document).ready(() => {
   $('#readButton').click(() => {
-    const requestURL = 'youtuber/category/' + $('#searchBox').val();
-    console.log('making ajax request to:', requestURL);
+  	var requestURL;
+  	if($('#searchBox').val() == "Music" || $('#searchBox').val() == "Entertainment" || $('#searchBox').val() == "Howto & Style" || $('#searchBox').val() =="Sports" || $('#searchBox').val() == "People & Blogs"|| $('#searchBox').val() == "Gaming"|| $('#searchBox').val() == "Comedy"|| $('#searchBox').val() =="Education"|| $('#searchBox').val() =="Film and Animation"|| $('#searchBox').val() =="Pets & Animals"|| $('#searchBox').val() =="Nonprofits & Activism"|| $('#searchBox').val() =="Science & Technology"|| $('#searchBox').val() =="News & Politics"|| $('#searchBox').val() =="Beauty & Fashion"|| $('#searchBox').val() =="Auto & Vehicles"|| $('#searchBox').val() =="Travel & Events"|| $('#searchBox').val() =="Food"|| $('#searchBox').val() =="Family Entertainment"){
+  		requestURL = 'youtuber/category/' + $('#searchBox').val();
+    	console.log('making ajax request to:', requestURL);
+  	}else{
+  		requestURL = 'youtuber/' + $('#searchBox').val();
+    	console.log('making ajax request to:', requestURL);
+  	}
+    
 
     // From: http://learn.jquery.com/ajax/jquery-ajax-methods/
     // Using the core $.ajax() method since it's the most flexible.
@@ -33,17 +40,7 @@ $(document).ready(() => {
         		}
         	
         	
-
-			// for (i in myObj.cars) {
-			//   x += "<h2 class='newclass'>" + myObj.cars[i].name + "</h2>";
-			//   for (j in myObj.cars[i].models) {
-			//     x += myObj.cars[i].models[j] + "<br>";
-			//   }
-			// }
-
-          // document.getElementsByClassName("list").innerHTML = x;
           $('.list').html(x);
-          console.log(x);
          
         } else {
           // $('#name').html('Error: could not find user at URL: ' + requestURL);
