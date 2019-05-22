@@ -6,6 +6,7 @@ app.use(express.static('static_files'));
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('youtuber.db');
 
+
 app.get('/youtuber', (req, res) => {
   db.all('SELECT title FROM youtuber_data', (err, rows) =>{
     console.log(rows);
@@ -14,6 +15,14 @@ app.get('/youtuber', (req, res) => {
     res.send(allYoutuber);
   });
 });
+
+app.get('/top_youtuber', (req, res) => {
+  db.all('SELECT * FROM youtuber_data', (err, rows) =>{
+    console.log(rows);
+    res.send(rows.slice(0,9));
+  });
+});
+
 
 app.get('/youtuber/:youtuberid', (req, res) => {
   const nameToLookup = req.params.youtuberid; // matches ':userid' above
