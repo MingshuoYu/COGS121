@@ -29,4 +29,4 @@ Users could search YouTuber by category and YouTuber name. If searching by YouTu
 
 User Action 2: 
 
-Users could sign in and log into their account and YouTubers to their 'YouTuber list'.
+Users could sign in and log into their account and save YouTubers to their 'YouTuber list'.
