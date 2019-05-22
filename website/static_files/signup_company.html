@@ -35,7 +35,7 @@
 				database.ref('users/'+ name).set({
 					password: $('#pass').val()
 				})
-				sessionStorage.setItem("currentUser", userNameField);
+				sessionStorage.setItem("currentUser", name);
 				window.location = 'home_company.html?currentUser=' + name;
 			})
 		})
