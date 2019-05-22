@@ -1,49 +1,95 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<link rel="stylesheet" href="style.css"> 
+	<link rel="stylesheet" href="style.css">
 	<title>Detail</title>
 	<style type="text/css">
-		body{
-			background: rgb(33,33,33);
+		body {
+			background: rgb(33, 33, 33);
 		}
-		.header{
+
+		.header {
 			height: 80px;
-			background: rgb(49,49,49);
+			background: rgb(49, 49, 49);
 			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.03), 0 4px 12px 0 rgba(0, 0, 0, 0.08);
 		}
-		#logo{
+
+		#logo {
 			margin-left: 1%;
 			margin-top: 1.4%;
 			width: 250px;
 		}
-		h3{
+
+		h3 {
 			margin-top: 0;
 			float: left;
 		}
-		.nav{
+
+		.nav {
 			float: right;
 			margin-top: 25px;
 			width: 120px;
 			margin-right: 20px;
 		}
-		.nav img{
+
+		.nav img {
 			float: left;
 			margin-left: 20px;
 			margin-top: 10px;
 		}
 
+		.list{
+			color:white;
+		}
 	</style>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+		 https://firebase.google.com/docs/web/setup#config-web-app -->
+
+	<script>
+		// Your web app's Firebase configuration
+		var firebaseConfig = {
+			apiKey: "AIzaSyBGIEY7_rXx54V_IDm3lBjhZ5QhPjfyJVk",
+			authDomain: "rhunter-470f2.firebaseapp.com",
+			databaseURL: "https://rhunter-470f2.firebaseio.com",
+			projectId: "rhunter-470f2",
+			storageBucket: "rhunter-470f2.appspot.com",
+			messagingSenderId: "527713486549",
+			appId: "1:527713486549:web:992f1f912eb26a4d"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+	</script>
+	<script src="jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(() => {
+			const database = firebase.database();
+			const curruser = sessionStorage.getItem("currentUser");
+			const key = 'users/'+ curruser +'/saved/';
+			database.ref(key).once('value', (snapshot) => {
+				const data = snapshot.val();
+				console.log('You received some data!', data);
+				$('#savedlist').html(Object.keys(data));
+			});
+		})
+	</script>
 </head>
+
 <body>
 	<div class="header">
 		<img id="logo" src="hunter_logo.png" width="15%">
 		<div class="nav">
 			<!-- <a href="chat_company.html"><img src="chat.png" width="30%"></a>&nbsp; &nbsp; &nbsp; &nbsp; -->
-			<a href="bookmark.html"><img src="mark.png" width=30px></a><a href="login_company.html"><img src="logout.png" width=26px></a>
+			<a href="bookmark.html"><img src="mark.png" width=30px></a><a href="login_company.html"><img
+					src="logout.png" width=26px></a>
 		</div>
 	</div>
-	
-	
+	<div class="list" id="savedlist"></div>
+
+
 </body>
+
 </html>

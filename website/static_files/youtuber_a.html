@@ -52,6 +52,26 @@
 			font-size: 12px;
 		}
 	</style>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+		 https://firebase.google.com/docs/web/setup#config-web-app -->
+
+	<script>
+		// Your web app's Firebase configuration
+		var firebaseConfig = {
+			apiKey: "AIzaSyBGIEY7_rXx54V_IDm3lBjhZ5QhPjfyJVk",
+			authDomain: "rhunter-470f2.firebaseapp.com",
+			databaseURL: "https://rhunter-470f2.firebaseio.com",
+			projectId: "rhunter-470f2",
+			storageBucket: "rhunter-470f2.appspot.com",
+			messagingSenderId: "527713486549",
+			appId: "1:527713486549:web:992f1f912eb26a4d"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+	</script>
 	<script src="jquery-3.3.1.min.js"></script>
 	<script type="text/javascript">
 	$(document).ready(() => {
@@ -86,7 +106,25 @@
 			});
 	});
 
+	function save() {
+		let url = decodeURIComponent(window.location.search);
+		url = url.substring(1);
+		const modiurl = new URLSearchParams(url);
+		const title = modiurl.get('title');
 
+		console.log("fk");
+		console.log(title);
+
+		const database = firebase.database();
+		const curruser = sessionStorage.getItem("currentUser");
+		console.log(curruser);
+		const key = 'users/'+ curruser +'/saved/'+ title;
+		console.log(key);
+		database.ref(key).set({
+					name: title
+				});
+		
+	}
 
 
 
@@ -119,7 +157,8 @@
 		<!-- <a href="chat_company.html">Chat</a> -->
 		<br>
 		<a id="channel"><img src="youtube.png" width="18%"></a>
-
+		<br>
+		<button id="saveButton" onclick="save()">Save to my list</button>
 	</div>
 
 </body>

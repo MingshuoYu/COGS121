@@ -2,12 +2,13 @@
 <html>
 
 <head>
-	<title>Login</title>
+	<title>Sign Up</title>
+	<link rel="stylesheet" href="style.css">
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
 
 	<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#config-web-app -->
+		 https://firebase.google.com/docs/web/setup#config-web-app -->
 
 	<script>
 		// Your web app's Firebase configuration
@@ -27,38 +28,16 @@
 	<script type="text/javascript">
 		$(document).ready(() => {
 			const database = firebase.database();
+
+			$('#loginButton').click(() => {
+				const name = $('#emailaddress').val();
+				database.ref('users/'+ name).set({
+					password: $('#pass').val()
+				})
+				window.location = 'home_company.html?currentUser=' + name;
+			})
 		})
-
-		function login() {
-			const database = firebase.database();
-			var userNameField = document.getElementById('username').value;
-            var passwordField = document.getElementById('password').value;
-
-			if (userNameField == "" || passwordField == "") {
-                alert("All fields must be filed")
-                return;
-            }
-			const key = 'users/' + userNameField;
-			database.ref(key).once('value', (snapshot) => {
-				const data = snapshot.val();
-				console.log(data);
-				if(!data){
-					alert("Could not find the user. Please sign up first.")
-                return;
-				}
-				if(data.password){
-					if(data.password == passwordField){
-						sessionStorage.setItem("currentUser", userNameField);
-						window.location = 'home_company.html?currentUser=' + userNameField;
-					}
-					else{
-						alert("Wrong Password!");
-					}
-				}
-			});
-		}
 	</script>
-	<link rel="stylesheet" href="style.css">
 </head>
 
 <style type="text/css">
@@ -114,10 +93,13 @@
 		cursor: pointer;
 		border-radius: 5px;
 	}
+
+	.note p {
+		font-size: 14px;
+	}
 </style>
 
 <body>
-
 	<div class="header">
 		<img id="logo" src="hunter_logo.png" width="15%">
 		<div class="nav">
@@ -128,18 +110,21 @@
 	&nbsp;
 	<div class="login">
 		<center>
-			<p>Welcom Back!</p>
+			<p>Sign Up</p>
 		</center>
 		<center>
-			
-				<p>Username:</p>
-				<input id="username" type="text" name="email" value="">
+				<p>Email:</p>
+				<input id="emailaddress" type="text" name="email" value="">
 				<br>
 				<p>Password:</p>
-				<input id="password" type="text" name="password" value="">
+				<input id="pass" type="text" name="password" value="">
 				<br><br>
-				<button id="loginButton" onclick="login()">Login</button>
-			
+				<button id="loginButton">Sign Up</button>
+				<span class="note">
+					<p>Already have an account?</p><a href="login_company.html">
+						<p>Login</p>
+					</a>
+				</span>
 		</center>
 	</div>
 </body>
