@@ -38,6 +38,13 @@ Data Display Screenshots:
 
 Data Display Explaination:
 
+We used firebase database to store user account information and their favorite list. The way we hook up the firebase to our app is we first made a firstbase database reference, and then use the onclick function to store the user account information to the firebase. For sign up, we just store the username and password to the firebase. For login, we first retrieve the account information from firstbase according to the username, then validate the password.
+
+We use SQLite3 as a tool to store and get the data about YouTubers from the database. In this part, there are several files that relate to accessing the database. The first part is the server.js file. In this file, we handle several get requests which pulling useful data like youtuber category, title, top youtuber, and youtuber id from the database. The second part is the home_company.html file. In this file, we get the real data from the database. Here, we use the ajax call the get the data that we need. The last part is the youtuber_a.html file. At here, we use the searching result from the home_company file that passed here to get the data from the database and fill into the front end page. We also use the ajax call to get the data from the database by get request. 
+
+When users save a YouTuber to their collection, we first store the current username in the session storage. Once the user enter the My YouTuber Collection page, we use the username in the session storage as a reference to retrieve the favorite list from firebase.
+
+
 
 Ambitious data display or visualization ideas:
 
