@@ -19,7 +19,7 @@ app.get('/youtuber', (req, res) => {
 app.get('/top_youtuber', (req, res) => {
   db.all('SELECT * FROM youtuber_data', (err, rows) =>{
     console.log(rows);
-    res.send(rows.slice(0,9));
+    res.send(rows.slice(0,100));
   });
 });
 
@@ -54,7 +54,7 @@ app.get('/youtuber/category/:categoryname', (req, res) => {
     (err, rows) => {
       console.log(rows);
       if(rows.length > 0){
-        res.send(rows.slice(0,9));
+        res.send(rows.slice(0,100));
       }
       else {
         res.send({});

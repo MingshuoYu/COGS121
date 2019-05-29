@@ -40,7 +40,7 @@
 			text-align: center;
 			border-radius: 10px;
 			padding-top: 50px;
-			padding-bottom: 100px;
+			padding-bottom: 50px;
 			padding-left: 50px;
 			padding-right: 50px;
 			margin-bottom: 50px;
@@ -61,6 +61,21 @@
 		#youtuber_photo{
 			border-radius: 50%;
 		}
+		#saveButton{
+		  font-family: Verdana, Geneva, sans-serif;
+		  background-color: rgb(244,67,54);
+		  border: none;
+		  color: white;
+		  padding: 10px 15px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 14px;
+		  cursor: pointer;
+		  margin-top: 50px;
+		  border-radius: 10px;
+		}
+
 	</style>
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
@@ -117,6 +132,7 @@
 	});
 
 	function save() {
+		$('#notice').html("Saved!");
 		let url = decodeURIComponent(window.location.search);
 		url = url.substring(1);
 		const modiurl = new URLSearchParams(url);
@@ -133,8 +149,7 @@
 		database.ref(key).set({
 					name: title
 				});
-		
-	}
+		}
 
 
 
@@ -142,7 +157,7 @@
 </head>
 <body>
 	<div class="header">
-		<img id="logo" src="hunter_logo.png" width="15%">
+		<a href="home_company.html"><img id="logo" src="hunter_logo.png" width="15%"></a>
 		<div class="nav">
 			<!-- <a href="chat_company.html"><img src="chat.png" width="30%"></a>&nbsp; &nbsp; &nbsp; &nbsp; -->
 			<a href="bookmark.html"><img src="mark.png" width=30px></img></a>
@@ -161,15 +176,14 @@
 		<!-- <span>upvote: 95%</span> -->
 		<br>
 		<br>
-		<br>
-		<br>
 		<p>Description</p>
 		<p id="description"></p>
 		<!-- <a href="chat_company.html">Chat</a> -->
 		<br>
 		<a id="channel"><img src="youtube.png" width="18%"></a>
 		<br>
-		<button id="saveButton" onclick="save()">Save to my list</button>
+		<button id="saveButton" onclick="save()">Save This YouTuber</button>
+		<p id="notice" style="font-size: 15px;">&nbsp;</p>
 	</div>
 
 </body>

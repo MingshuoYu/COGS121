@@ -21,10 +21,6 @@
 			width: 250px;
 		}
 
-		h3 {
-			margin-top: 0;
-			float: left;
-		}
 
 		.nav {
 			float: right;
@@ -39,9 +35,64 @@
 			margin-top: 10px;
 		}
 
+		
 		.list{
-			color:white;
+			margin-left: 3vw;
 		}
+		.list a{
+			float: left;
+			margin-left: 80px;
+			margin-top: 40px;
+			margin-bottom: 40px;
+			width: 22vw;
+			height: 9vw;
+			background: rgb(60,60,60);
+			text-decoration: none;
+			border-radius: 5px;
+			padding: 14px;
+			box-shadow: 10px 10px #D33737;
+		}
+		.list p{
+			margin: 0;
+
+		}
+
+		.number{
+			width: 2vw;
+			float: left;
+		}
+		.photo{
+			width: 8vw;
+			float: left;
+			padding-top: 1vw;
+		}
+		.photo img{
+			 border-radius: 50%;
+		}
+		.info{
+			width: 12vw;
+			float: left;
+			padding-top: 1vw;
+		}
+		.category{
+		font-size: 12px;
+		line-height: 30px;
+		/*text-transform: uppercase;*/
+		}
+		.subscriber{
+			font-family: Source Sans Pro;
+			font-size: 12px;
+			color: white;
+			margin-top: 20px;
+		}
+		h3 {
+			font-family: Source Sans Pro;
+			font-size: 25px;
+			color: white;
+			letter-spacing: 0.8px;
+			margin-top: 50px;
+		}
+
 	</style>
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
@@ -73,20 +124,52 @@
 				const data = snapshot.val();
 				console.log('You received some data!', data);
 				$('#savedlist').html(Object.keys(data));
+				var savedName = Object.keys(data);
+				console.log(savedName);
+				let x = "";
+				for(i in savedName){
+					let requestURL;
+					requestURL = 'youtuber/' + savedName[i];
+	    			console.log('making ajax request to:', requestURL);
+
+				    $.ajax({
+				      // all URLs are relative to http://localhost:3000/
+				      url: requestURL,
+				      type: 'GET',
+				      dataType : 'json', // this URL returns data in JSON format
+				      success: (data) => {
+				        console.log('You received some data!', data);				      
+
+				        if (data) {
+				        	let queryString = "?title=" + data[0].title;
+				        	x += "<a id='youtubers' href='youtuber_a.html" + queryString + "'>" + "<p class='number'>" + "</p>"+ "<div class='photo'>"+"<img src="+data[0].picture_url +" width='70%'>" +"</div>"+ "<div class='info'>"+"<p class='name'>"+data[0].title+"</p>" +"<p class='category'>"+data[0].category_name+"</p>"+ "<span class='subscriber'>"+"<img src='subscriber.png' width='7%'>"+"&nbsp;"+"Followers:"+"&nbsp;"+data[0].followers+"</span>"+"</div>"+"</a>";
+				        		
+
+				          $('.list').html(x);
+
+				        } else {
+				          // $('#name').html('Error: could not find user at URL: ' + requestURL);
+				          console.log("could not find user at URL: ' + requestURL");
+				        }
+				      }
+				    });
+    			}
 			});
+
 		})
 	</script>
 </head>
 
 <body>
 	<div class="header">
-		<img id="logo" src="hunter_logo.png" width="15%">
+		<a href="home_company.html"><img id="logo" src="hunter_logo.png" width="15%"></a>
 		<div class="nav">
 			<!-- <a href="chat_company.html"><img src="chat.png" width="30%"></a>&nbsp; &nbsp; &nbsp; &nbsp; -->
 			<a href="bookmark.html"><img src="mark.png" width=30px></a><a href="login_company.html"><img
 					src="logout.png" width=26px></a>
 		</div>
 	</div>
+	<center><h3>My YouTuber Collection</h3></center>
 	<div class="list" id="savedlist"></div>
 
 
