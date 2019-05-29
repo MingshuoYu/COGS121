@@ -1,0 +1,3 @@
+Scenaria:
+
+Our target users are companies/organizations who are seeking YouTubers to promote their products on YouTube channel. On our website, a target user will be able to search YouTubers by their names and channel categories. If the user wants to promote a sport product, he/she cann search "Sports" and get top 100 YouTubers who have the greatest number of subscribers. The user can also sort searching results by setting the maximum number of subscribers. Since the bigger number of subscribers is, the more expensive will the promotion be, the user can find YouTubers who provide promotion at a price the user can afford. 
