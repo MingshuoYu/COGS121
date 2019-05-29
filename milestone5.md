@@ -24,6 +24,8 @@ UI Improvements:
 
 2.Added "sort by subscriber number" function to home page so that users can set maximum number of subscribers in their searching.
 
+3.Changed styling of YouTuber boxes to make the visualization more modern.
+
 
 Data Display Screenshots:
 
