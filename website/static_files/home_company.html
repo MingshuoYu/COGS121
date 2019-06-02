@@ -16,7 +16,7 @@ $(document).ready(() => {
       type: 'GET',
       dataType : 'json', // this URL returns data in JSON format
       success: (data) => {
-        console.log('You received some data!', data);
+
 
         let i,x = "";
 
@@ -70,9 +70,10 @@ $(document).ready(() => {
 	        let i,x = "";
 
 	        if (data) {
+	        	let rank = 0;
 	        	for(i in data){
 	        			let queryString = "?title=" + data[i].title;
-	        			let rank = Number(i)+1;
+	        			rank += 1;
 	        			x += "<a id='youtubers' href='youtuber_a.html" + queryString + "'>" + "<p class='number'>" + rank+ "</p>"+ "<div class='photo'>"+"<img src="+data[i].picture_url +" width='70%'>" +"</div>"+ "<div class='info'>"+"<p class='name'>"+data[i].title+"</p>" +"<p class='category'>"+data[i].category_name+"</p>"+ "<span class='subscriber'>"+"<img src='subscriber.png' width='7%'>"+"&nbsp;"+"Followers:"+"&nbsp;"+data[i].followers+"</span>"+"</div>"+"</a>";
 	        	}
 
@@ -103,9 +104,10 @@ $(document).ready(() => {
 
 	        if (data) {
 
-	        		for(i in data){  
+	        		for(i in data){ 
+	        		let rank = 0; 
 						if(data[i].followers < $('#subNum').val()*1000){
-			        		let rank = Number(i)+1;
+			        		rank += 1;
 							let queryString = "?title=" + data[i].title;
 			        		x += "<a id='youtubers' href='youtuber_a.html" + queryString + "'>" + "<p class='number'>" + rank+ "</p>"+ "<div class='photo'>"+"<img src="+data[i].picture_url +" width='70%'>" +"</div>"+ "<div class='info'>"+"<p class='name'>"+data[i].title+"</p>" +"<p class='category'>"+data[i].category_name+"</p>"+ "<span class='subscriber'>"+"<img src='subscriber.png' width='7%'>"+"&nbsp;"+"Followers:"+"&nbsp;"+data[i].followers+"</span>"+"</div>"+"</a>";
 			        	}
@@ -122,7 +124,51 @@ $(document).ready(() => {
 	      }
 	    });
   	});
+
+
+  	$('#categoryBt').click(() => {
+  		var e = document.getElementById("list");
+		var categorySelected = e.options[e.selectedIndex].value;
+		console.log(categorySelected);
+		requestURL = 'youtuber/category/' + categorySelected;
+	    console.log('making ajax request to:', requestURL);
+	    if (categorySelected == "All Categories"){
+	    	requestURL = '/top_youtuber';
+	    }
+  		
+  		$.ajax({
+	      // all URLs are relative to http://localhost:3000/
+	      url: requestURL,
+	      type: 'GET',
+	      dataType : 'json', // this URL returns data in JSON format
+	      success: (data) => {
+	        console.log('You received some data!', data);
+
+	        let i,x = "";
+
+	        if (data) {
+	        		let rank = 0;
+	        		for(i in data){  
+			        		rank += 1;
+							let queryString = "?title=" + data[i].title;
+			        		x += "<a id='youtubers' href='youtuber_a.html" + queryString + "'>" + "<p class='number'>" + rank+ "</p>"+ "<div class='photo'>"+"<img src="+data[i].picture_url +" width='70%'>" +"</div>"+ "<div class='info'>"+"<p class='name'>"+data[i].title+"</p>" +"<p class='category'>"+data[i].category_name+"</p>"+ "<span class='subscriber'>"+"<img src='subscriber.png' width='7%'>"+"&nbsp;"+"Followers:"+"&nbsp;"+data[i].followers+"</span>"+"</div>"+"</a>";
+	        		}
+
+
+	          $('.list').html(x);
+
+	        } else {
+	          // $('#name').html('Error: could not find user at URL: ' + requestURL);
+	          console.log("could not find user at URL: ' + requestURL");
+	        }
+	      }
+	    });
+  	});
+
+
  });
+
+	
 
 	</script>
 
@@ -236,8 +282,10 @@ $(document).ready(() => {
 			margin-top: 20px;
 		}
 		.subscriberRes{
-			margin-left: 10%;
+			margin-left: 30%;
 			margin-top: 5vw;
+			float: left;
+			margin-bottom: 50px;
 		}
 		#subBt{
 		  font-family: Verdana, Geneva, sans-serif;
@@ -253,6 +301,30 @@ $(document).ready(() => {
 		}
 		#subNum{
 			height: 20px;
+			width: 150px;
+		}
+		.category_list{
+			margin-left: 10%;
+			margin-top: 5vw;
+			float: left;	
+			margin-bottom: 50px;
+		}
+		#categoryBt{
+		  font-family: Verdana, Geneva, sans-serif;
+		  background-color: rgb(70,70,70);
+		  border: none;
+		  color: rgb(255,49,49);
+		  padding: 6px 10px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 13px;
+		  cursor: pointer;
+		  margin-right: 200px;
+		}
+		#list{
+			height: 30px;
+			width: 150px;
 		}
 
 	</style>
@@ -267,16 +339,39 @@ $(document).ready(() => {
 	</div>
 
 	<div class="search">
-		<input id="searchBox" type="text" name="">
+		<input id="searchBox" type="text" name="" placeholder="YouTuber, category, etc...">
 		<button id="readButton">Search</button>
 	</div>
 	<div class="subscriberRes">
-		<p>Max Subscriber Number:</p>
-		<input id="subNum" type="number" name="">
+		<input id="subNum" type="number" name="" placeholder="Max Follower Number">
 		<span>K</span>
 		&nbsp;
 		&nbsp;
-		<button id="subBt">Done</button>
+		<button id="subBt">Set</button>
+	</div>
+	<div class="category_list">
+		  	<select id="list">	 
+		  		<option value="All Categories">All Categories</option>
+		    	<option value="Music">Music</option>
+		    	<option value="Entertainment">Entertainment</option>
+		   		<option value="Education">Education</option>
+		   		<option value="Sports">Sports</option>
+		   		<option value="Food">Food</option>
+		   		<option value="Howto & Style">Howto & Style</option>
+	    		<option value="Comedy">Comedy</option>
+	    		<option value="Gaming">Gaming</option>
+		    	<option value="Film and Animation">Film and Animation</option>
+		    	<option value="Pets & Animals">Pets & Animals</option>
+		   		<option value="Beauty & Fashion">Beauty & Fashion</option>
+		   		<option value="Science & Technology">Science & Technology</option>
+		   		<option value="Auto & Vehicles">Auto & Vehicles</option>
+		   		<option value="News & Politics">News & Politics</option>
+	    		<option value="Family Entertainment">Family Entertainment</option>
+	    		<option value="Travel & Events">Travel & Events</option>
+		    	<option value="Comedy">Comedy</option>
+		    	<option value="People & Blogs">People & Blogs</option>	  	
+			</select>	
+		<button id="categoryBt">Set</button>
 	</div>
 	<br><br>
 	<div class="list">

@@ -27,7 +27,7 @@ app.get('/top_youtuber', (req, res) => {
 app.get('/youtuber/:youtuberid', (req, res) => {
   const nameToLookup = req.params.youtuberid; // matches ':userid' above
   db.all(
-    'SELECT * FROM youtuber_data WHERE title = $title',
+    'SELECT * FROM youtuber_data WHERE title = $title COLLATE NOCASE',
     {
       $title: nameToLookup
     },
@@ -47,7 +47,7 @@ app.get('/youtuber/:youtuberid', (req, res) => {
 app.get('/youtuber/category/:categoryname', (req, res) => {
   const nameToLookup = req.params.categoryname; // matches ':userid' above
   db.all(
-    'SELECT * FROM youtuber_data WHERE category_name = $category_name',
+    'SELECT * FROM youtuber_data WHERE LOWER(category_name) = LOWER($category_name)',
     {
       $category_name: nameToLookup
     },
