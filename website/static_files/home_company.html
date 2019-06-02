@@ -5,8 +5,9 @@
 	<script src="jquery-3.3.1.min.js"></script>
 	<link rel="stylesheet" href="style.css">
 	<script type="text/javascript">
-$(document).ready(() => {
-	localStorage.setItem("subNum", 100000000);
+	$(document).ready(() =>
+	{
+	localStorage.setItem("subNum", 100000);
 	let requestURL;
 	requestURL = '/top_youtuber';
 	localStorage.setItem("requestURL", requestURL);
@@ -22,8 +23,8 @@ $(document).ready(() => {
 
         if (data) {
 
-        		for(i in data){  
-		
+        		for(i in data){
+
 		        		let rank = Number(i)+1;
 						let queryString = "?title=" + data[i].title;
 		        		x += "<a id='youtubers' href='youtuber_a.html" + queryString + "'>" + "<p class='number'>" + rank+ "</p>"+ "<div class='photo'>"+"<img src="+data[i].picture_url +" width='70%'>" +"</div>"+ "<div class='info'>"+"<p class='name'>"+data[i].title+"</p>" +"<p class='category'>"+data[i].category_name+"</p>"+ "<span class='subscriber'>"+"<img src='subscriber.png' width='7%'>"+"&nbsp;"+"Followers:"+"&nbsp;"+data[i].followers+"</span>"+"</div>"+"</a>";
@@ -73,7 +74,7 @@ $(document).ready(() => {
 	        	let rank = 0;
 	        	for(i in data){
 	        			let queryString = "?title=" + data[i].title;
-	        			rank += 1;
+	        			rank ++;
 	        			x += "<a id='youtubers' href='youtuber_a.html" + queryString + "'>" + "<p class='number'>" + rank+ "</p>"+ "<div class='photo'>"+"<img src="+data[i].picture_url +" width='70%'>" +"</div>"+ "<div class='info'>"+"<p class='name'>"+data[i].title+"</p>" +"<p class='category'>"+data[i].category_name+"</p>"+ "<span class='subscriber'>"+"<img src='subscriber.png' width='7%'>"+"&nbsp;"+"Followers:"+"&nbsp;"+data[i].followers+"</span>"+"</div>"+"</a>";
 	        	}
 
@@ -89,31 +90,33 @@ $(document).ready(() => {
 	});
 
   	$('#subBt').click(() => {
-  		// localStorage.setItem("subNum", $('#subNum').val());
-  		// console.log(localStorage.subNum);
+  		localStorage.setItem("subNum", $('#subNum').val());
+  		console.log(localStorage.subNum);
   		requestURL = localStorage.getItem("requestURL");
   		$.ajax({
 	      // all URLs are relative to http://localhost:3000/
 	      url: requestURL,
 	      type: 'GET',
 	      dataType : 'json', // this URL returns data in JSON format
-	      success: (data) => {
+	      success: (data) =>
+				{
 	        console.log('You received some data!', data);
 
 	        let i,x = "";
 
-	        if (data) {
-
-	        		for(i in data){ 
-	        		let rank = 0; 
-						if(data[i].followers < $('#subNum').val()*1000){
-			        		rank += 1;
-							let queryString = "?title=" + data[i].title;
-			        		x += "<a id='youtubers' href='youtuber_a.html" + queryString + "'>" + "<p class='number'>" + rank+ "</p>"+ "<div class='photo'>"+"<img src="+data[i].picture_url +" width='70%'>" +"</div>"+ "<div class='info'>"+"<p class='name'>"+data[i].title+"</p>" +"<p class='category'>"+data[i].category_name+"</p>"+ "<span class='subscriber'>"+"<img src='subscriber.png' width='7%'>"+"&nbsp;"+"Followers:"+"&nbsp;"+data[i].followers+"</span>"+"</div>"+"</a>";
+	        if (data)
+					{
+						  let rank = 0;
+	        		for(i in data)
+							{
+						  	if(data[i].followers > $('#subNum').val()*1000)
+								{
+			        		rank++;
+									let queryString = "?title=" + data[i].title;
+			        		x += "<a id='youtubers' href='youtuber_a.html" + queryString + "'>" + "<p class='number'>" + rank + "</p>"+ "<div class='photo'>"+"<img src="+data[i].picture_url +" width='70%'>" +"</div>"+ "<div class='info'>"+"<p class='name'>"+data[i].title+"</p>" +"<p class='category'>"+data[i].category_name+"</p>"+ "<span class='subscriber'>"+"<img src='subscriber.png' width='7%'>"+"&nbsp;"+"Followers:"+"&nbsp;"+data[i].followers+"</span>"+"</div>"+"</a>";
 			        	}
 
 	        		}
-
 
 	          $('.list').html(x);
 
@@ -135,7 +138,7 @@ $(document).ready(() => {
 	    if (categorySelected == "All Categories"){
 	    	requestURL = '/top_youtuber';
 	    }
-  		
+
   		$.ajax({
 	      // all URLs are relative to http://localhost:3000/
 	      url: requestURL,
@@ -148,7 +151,7 @@ $(document).ready(() => {
 
 	        if (data) {
 	        		let rank = 0;
-	        		for(i in data){  
+	        		for(i in data){
 			        		rank += 1;
 							let queryString = "?title=" + data[i].title;
 			        		x += "<a id='youtubers' href='youtuber_a.html" + queryString + "'>" + "<p class='number'>" + rank+ "</p>"+ "<div class='photo'>"+"<img src="+data[i].picture_url +" width='70%'>" +"</div>"+ "<div class='info'>"+"<p class='name'>"+data[i].title+"</p>" +"<p class='category'>"+data[i].category_name+"</p>"+ "<span class='subscriber'>"+"<img src='subscriber.png' width='7%'>"+"&nbsp;"+"Followers:"+"&nbsp;"+data[i].followers+"</span>"+"</div>"+"</a>";
@@ -168,7 +171,7 @@ $(document).ready(() => {
 
  });
 
-	
+
 
 	</script>
 
@@ -306,7 +309,7 @@ $(document).ready(() => {
 		.category_list{
 			margin-left: 10%;
 			margin-top: 5vw;
-			float: left;	
+			float: left;
 			margin-bottom: 50px;
 		}
 		#categoryBt{
@@ -343,14 +346,14 @@ $(document).ready(() => {
 		<button id="readButton">Search</button>
 	</div>
 	<div class="subscriberRes">
-		<input id="subNum" type="number" name="" placeholder="Max Follower Number">
+		<input id="subNum" type="number" name="" placeholder="Min followers number">
 		<span>K</span>
 		&nbsp;
 		&nbsp;
 		<button id="subBt">Set</button>
 	</div>
 	<div class="category_list">
-		  	<select id="list">	 
+		  	<select id="list">
 		  		<option value="All Categories">All Categories</option>
 		    	<option value="Music">Music</option>
 		    	<option value="Entertainment">Entertainment</option>
@@ -369,8 +372,8 @@ $(document).ready(() => {
 	    		<!-- <option value="Family Entertainment">Family Entertainment</option> -->
 	    		<option value="Travel & Events">Travel & Events</option>
 		    	<option value="Comedy">Comedy</option>
-		    	<option value="People & Blogs">People & Blogs</option>	  	
-			</select>	
+		    	<option value="People & Blogs">People & Blogs</option>
+			</select>
 		<button id="categoryBt">Set</button>
 	</div>
 	<br><br>
