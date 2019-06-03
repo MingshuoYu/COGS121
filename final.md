@@ -12,6 +12,16 @@ Team Members' Name: Mingshuo Yu, Jiayu Luo, Weilin Liu, Zibin Dong
   Mingshuo Yu has connected user input to website url to pass paramater to different website pages.
   All members contributed debuging and refurbishing our project as the class goes.
   
+ 
+ file description:
+     server.js: In this file, the code is mainly for connecting the sqlite database and handle the get requests from other files. We used serveral sql commands to get the data that we want from the database.
+     bookmark.html:
+     home_company.html:
+     login_company.html:
+     signup_company.html:
+     youtuber_a.html: In the file, the code is mainly devided into two portion. The first portion is to handle the save function. In this portion, we use the firebase to save the selected youtuber to the user's profile in the firebase. The second portion is to handle the display the searched the youtuber from the previous page. In this portion, we used ajax call to get the data of searched youtuber from our database and file these data to the webpage.
+
+  
   
   
 
