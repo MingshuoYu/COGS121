@@ -26,6 +26,8 @@ login_company.html: This file displays user login interface and implements user 
      
 signup_company.html:youtuber_a.html: In the file, the code is mainly devided into two portion. The first portion is to handle the save function. In this portion, we use the firebase to save the selected youtuber to the user's profile in the firebase. The second portion is to handle the display the searched the youtuber from the previous page. In this portion, we used ajax call to get the data of searched youtuber from our database and file these data to the webpage.
 
+Google Slide Link: https://docs.google.com/presentation/d/1xU6NqPzp3L-UkPkezaX8H1XNWG043npEam3xn32ujSQ/edit#slide=id.p
+
   
   
   
