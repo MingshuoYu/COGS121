@@ -15,7 +15,7 @@ Team Members' Name: Mingshuo Yu, Jiayu Luo, Weilin Liu, Zibin Dong
  
  file description:
  
-     server.js: In this file, the code is mainly for connecting the sqlite database and handle the get requests from other files. We used serveral sql commands to get the data that we want from the database.
+ server.js: In this file, the code is mainly for connecting the sqlite database and handle the get requests from other files. We used serveral sql commands to get the data that we want from the database.
      
      bookmark.html:
      
