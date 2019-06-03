@@ -1,3 +1,4 @@
+//In this file, the code is mainly for connecting the sqlite database and handle the get requests from other files. We used serveral sql commands to get the data that we want from the database.
 const express = require('express');
 const app = express();
 
