@@ -28,6 +28,8 @@ signup_company.html:youtuber_a.html: In the file, the code is mainly devided int
 
 Google Slide Link: https://docs.google.com/presentation/d/1xU6NqPzp3L-UkPkezaX8H1XNWG043npEam3xn32ujSQ/edit#slide=id.p
 
+Video Link: https://www.youtube.com/watch?v=aPW8VuVaYF8
+
   
   
   
