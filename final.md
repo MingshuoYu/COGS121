@@ -28,7 +28,7 @@ signup_company.html: This file displays user sign up interface and implements us
 youtuber_a.html: This file displays YouTubers' details information and has a save button for users to save YouTuber to My YouTuber Collection. In the file, the code is mainly devided into two portion. The first portion is to handle the save function. In this portion, we use the firebase to save the selected youtuber to the user's profile in the firebase. The second portion is to handle the display the searched the youtuber from the previous page. In this portion, we used ajax call to get the data of searched youtuber from our database and file these data to the webpage.
 
 
-Google Slide Link: https://docs.google.com/presentation/d/1xU6NqPzp3L-UkPkezaX8H1XNWG043npEam3xn32ujSQ/edit#slide=id.p
+Google Slide Link: https://docs.google.com/presentation/d/e/2PACX-1vTXfye3WXJ4jfPBdRg5h97aWjHZJ8YHbvjgFFrggCa1XEN_WRBzlSZy6WPQaA-UqKjQZRKf7Kl_RZf7/pub?start=false&loop=false&delayms=3000
 
 Video Link: https://www.youtube.com/watch?v=aPW8VuVaYF8
 
