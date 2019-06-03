@@ -16,6 +16,7 @@ app.get('/youtuber', (req, res) => {
   });
 });
 
+// get youtubers with the biggest follower number
 app.get('/top_youtuber', (req, res) => {
   db.all('SELECT * FROM youtuber_data', (err, rows) =>{
     console.log(rows);
@@ -23,7 +24,7 @@ app.get('/top_youtuber', (req, res) => {
   });
 });
 
-
+// get youtuber based on name
 app.get('/youtuber/:youtuberid', (req, res) => {
   const nameToLookup = req.params.youtuberid; // matches ':userid' above
   db.all(
@@ -44,6 +45,7 @@ app.get('/youtuber/:youtuberid', (req, res) => {
 
 });
 
+// get youtuber based on category
 app.get('/youtuber/category/:categoryname', (req, res) => {
   const nameToLookup = req.params.categoryname; // matches ':userid' above
   db.all(
