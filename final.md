@@ -1,4 +1,4 @@
-//To do: video, md, google slide
+
 Team Name: Youtuber Hunter
 
 Team Members' Name: Mingshuo Yu, Jiayu Luo, Weilin Liu, Zibin Dong
